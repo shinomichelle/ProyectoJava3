@@ -41,7 +41,7 @@ public class controllerProducto {
             p.buscarPorId(id_producto);
             msg = "Producto encontrado con exito";
         } catch (Exception e) {
-            msg = "Error al actualizar prodcuto...";
+            msg = "Error al encontrar prodcuto..." + e;
         }
         return msg;
         

@@ -31,14 +31,16 @@ import org.codehaus.jackson.annotate.JsonIgnore;
  */
 @Entity
 @Table(name = "producto")
+/*
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Producto.findAll", query = "SELECT p FROM Producto p"),
     @NamedQuery(name = "Producto.findByIdProducto", query = "SELECT p FROM Producto p WHERE p.idProducto = :idProducto"),
     @NamedQuery(name = "Producto.findByDescripcion", query = "SELECT p FROM Producto p WHERE p.descripcion = :descripcion")})
+*/
 public class Producto implements Serializable {
     @OneToMany(mappedBy = "idProd")
-    private Collection<Precio> precioCollection;
+   // private Collection<Precio> precioCollection;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -120,7 +122,7 @@ public class Producto implements Serializable {
     public String toString() {
         return "com.carrillo.proyectojava3.Producto[ idProducto=" + idProducto + " ]";
     }
-
+/*
     @XmlTransient
     @JsonIgnore
     public Collection<Precio> getPrecioCollection() {
@@ -130,5 +132,5 @@ public class Producto implements Serializable {
     public void setPrecioCollection(Collection<Precio> precioCollection) {
         this.precioCollection = precioCollection;
     }
-    
+    */
 }

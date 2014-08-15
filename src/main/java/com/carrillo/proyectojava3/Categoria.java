@@ -29,14 +29,9 @@ import org.codehaus.jackson.annotate.JsonIgnore;
  */
 @Entity
 @Table(name = "categoria")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Categoria.findAll", query = "SELECT c FROM Categoria c"),
-    @NamedQuery(name = "Categoria.findById", query = "SELECT c FROM Categoria c WHERE c.id = :id"),
-    @NamedQuery(name = "Categoria.findByDescripcion", query = "SELECT c FROM Categoria c WHERE c.descripcion = :descripcion")})
 public class Categoria implements Serializable {
     @OneToMany(mappedBy = "idCategoria")
-    private Collection<Producto> productoCollection;
+    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -110,14 +105,5 @@ public class Categoria implements Serializable {
         return "com.carrillo.proyectojava3.Categoria[ id=" + id + " ]";
     }
 
-    @XmlTransient
-    @JsonIgnore
-    public Collection<Producto> getProductoCollection() {
-        return productoCollection;
-    }
-
-    public void setProductoCollection(Collection<Producto> productoCollection) {
-        this.productoCollection = productoCollection;
-    }
     
 }

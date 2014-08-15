@@ -52,7 +52,7 @@ public class DAOProducto extends DAO {
 
     public Producto buscarPorId(int id) {
         begin();
-        Query q = getSession().createQuery("from producto where id_producto = :id");
+        Query q = getSession().createQuery("select from producto where id_producto = :id");
         q.setInteger("id_producto", id);
         Producto p = (Producto) q.uniqueResult();
         commit();
